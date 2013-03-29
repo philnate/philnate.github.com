@@ -1,28 +1,48 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://philnate.me/blog/0207/12/05/restoring-windows/</loc>
+        <lastmod>2013-03-29T23:11:37+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://philnate.me/blog/2005/10/25/tip-of-the-week/</loc>
-        <lastmod>2013-03-29T17:01:00+01:00</lastmod>
+        <lastmod>2013-03-29T22:40:52+01:00</lastmod>
     </url>
     <url>
         <loc>http://philnate.me/blog/2007/03/17/html---this-is-the-reality/</loc>
-        <lastmod>2013-03-29T16:10:08+01:00</lastmod>
+        <lastmod>2013-03-29T22:41:05+01:00</lastmod>
     </url>
     <url>
         <loc>http://philnate.me/blog/2007/04/07/having-fun-with-google/</loc>
-        <lastmod>2013-03-29T16:10:08+01:00</lastmod>
+        <lastmod>2013-03-29T22:41:13+01:00</lastmod>
     </url>
     <url>
         <loc>http://philnate.me/blog/2007/05/06/be-nice-give-your-visitors-some-sweet/</loc>
-        <lastmod>2013-03-29T16:10:08+01:00</lastmod>
+        <lastmod>2013-03-29T22:41:21+01:00</lastmod>
     </url>
     <url>
         <loc>http://philnate.me/blog/2007/05/21/httpbl---remedy-or-just-painkiller/</loc>
-        <lastmod>2013-03-29T16:10:08+01:00</lastmod>
+        <lastmod>2013-03-29T22:41:46+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/blog/2007/09/13/how-to-get-php5-working-on-debian-3-dot-1/</loc>
+        <lastmod>2013-03-29T23:05:46+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/blog/2007/10/04/why-stealing-is-bad/</loc>
+        <lastmod>2013-03-29T22:48:19+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/blog/2007/10/21/how-to-prevent-most-of-the-spam/</loc>
+        <lastmod>2013-03-29T22:55:50+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/blog/2007/10/28/be-careful-with-approving-comments/</loc>
+        <lastmod>2013-03-29T23:03:27+01:00</lastmod>
     </url>
     <url>
         <loc>http://philnate.me/blog/archives/</loc>
-        <lastmod>2013-03-29T17:01:00+01:00</lastmod>
+        <lastmod>2013-03-29T23:11:37+01:00</lastmod>
     </url>
     <url>
         <loc>http://philnate.me/robots.txt</loc>
@@ -30,6 +50,6 @@
     </url>
     <url>
         <loc>http://philnate.me/</loc>
-        <lastmod>2013-03-29T17:01:00+01:00</lastmod>
+        <lastmod>2013-03-29T23:11:37+01:00</lastmod>
     </url>
 </urlset>

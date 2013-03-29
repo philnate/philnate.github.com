@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Tip of the Week! - Eventually /dev/null</title>
+  <title>Restoring Windows - Eventually /dev/null</title>
   <meta name="author" content="Philipp Knobel">
 
   
-  <meta name="description" content="">
+  <meta name="description" content="Just the latest example how stupid I can be sometimes:
+I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://philnate.me/blog/2005/10/25/tip-of-the-week">
+  <link rel="canonical" href="http://philnate.me/blog/0207/12/05/restoring-windows">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Eventually /dev/null" type="application/atom+xml">
@@ -68,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Tip of the Week!</h1>
+      <h1 class="entry-title">Restoring Windows</h1>
     
     
       <p class="meta">
@@ -84,16 +85,24 @@
   
 
 
-<time datetime="2005-10-25T00:00:00+02:00" pubdate data-updated="true">Oct 25<span>th</span>, 2005</time>
+<time datetime="0207-12-05T23:07:28+00:53" pubdate data-updated="true">Dec 5<span>th</span>, 0207</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I&#8217;m happy to announce that the <strong>Tip: Fake-Transparency for UserControls</strong>, is taken as Tip of the Week 24.10-30.10 on the biggest german Website for VisualBasic, <a href="http://vbarchiv.net">Vb@rchiv.net</a>.<br/>
-I feel me now a bit proud and I&#8217;m strengthened that my work, what I do isn&#8217;t so worse as I sometimes see it.<br/>
-I hope that my following tips I will someday release and other coding work will connect on this success.</p>
+<div class="entry-content"><p>Just the latest example how stupid I can be sometimes:<br/>
+I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that problematic if it hadn&#8217;t the Boot session on it. Anyway I didn&#8217;t noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
+After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal&#8230;as long as you have your Recovery CD with you, but I didn&#8217;t&#8230;(second time some knocking, was hearable).<br/>
+So my next try was to get some Recovery Application on the base of some small DOS Boot, I found quickly something, anyway it didn&#8217;t worked for XP(at least for my PC it didn&#8217;t).<br/>
+Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <strong>fixmbr</strong>&amp;<strong>fixboot</strong> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:<br/>
+<code><br/>
+bootrec.exe /fixmbr<br/>
+bootrec.exe /fixboot<br/>
+</code><br/>
+I&#8217;ve applied both commands, the had be done correctly and after a Restart I was able to Boot Windows again. The only good point is that I don&#8217;t have to take care on startup if the correct OS is selected, anymore :).<br/>
+A side note for the next time I make any changes to an OS, be sure to have the recovery CD near myself!</p>
 </div>
 
 
@@ -116,15 +125,21 @@ I hope that my following tips I will someday release and other coding work will 
   
 
 
-<time datetime="2005-10-25T00:00:00+02:00" pubdate data-updated="true">Oct 25<span>th</span>, 2005</time>
+<time datetime="0207-12-05T23:07:28+00:53" pubdate data-updated="true">Dec 5<span>th</span>, 0207</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/others/'>others</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://philnate.me/blog/2005/10/25/tip-of-the-week/" data-via="philnate" data-counturl="http://philnate.me/blog/2005/10/25/tip-of-the-week/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://philnate.me/blog/0207/12/05/restoring-windows/" data-via="philnate" data-counturl="http://philnate.me/blog/0207/12/05/restoring-windows/" >Tweet</a>
   
   
   
@@ -133,10 +148,8 @@ I hope that my following tips I will someday release and other coding work will 
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/0207/12/05/restoring-windows/" title="Previous Post: Restoring Windows">&laquo; Restoring Windows</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2007/03/17/html---this-is-the-reality/" title="Next Post: HTML - this is the reality">HTML - this is the reality &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2005/10/25/tip-of-the-week/" title="Next Post: Tip of the Week!">Tip of the Week! &raquo;</a>
       
     </p>
   </footer>

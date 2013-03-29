@@ -4,7 +4,7 @@
   <title><![CDATA[Eventually /dev/null]]></title>
   <link href="http://philnate.me/atom.xml" rel="self"/>
   <link href="http://philnate.me/"/>
-  <updated>2013-03-29T17:03:44+01:00</updated>
+  <updated>2013-03-29T23:13:41+01:00</updated>
   <id>http://philnate.me/</id>
   <author>
     <name><![CDATA[Philipp Knobel]]></name>
@@ -14,12 +14,127 @@
 
   
   <entry>
-    <title type="html"><![CDATA[http:BL   remedy or just painkiller?]]></title>
+    <title type="html"><![CDATA[Be careful with approving Comments]]></title>
+    <link href="http://philnate.me/blog/2007/10/28/be-careful-with-approving-comments/"/>
+    <updated>2007-10-28T22:56:00+01:00</updated>
+    <id>http://philnate.me/blog/2007/10/28/be-careful-with-approving-comments</id>
+    <content type="html"><![CDATA[<p>Ever got Comments you don&#8217;t understand, because they&#8217;re in some language you&#8217;re not able to speak? Ever asked why someone writes a Comment in Russian to some post, which is let&#8217;s say written in english, german, french or whatever( at the same time I want to notice that I don&#8217;t talk about Comments made to some .de, .fr, .ru Blog, in the depending language where the owner of the Blog is able to speak that language as well. Where a commenter could believe it would be better to write in their native language as possible missunderstandings could be avoided because of better knowledge of this language).<br/>
+What could be the reason to behave like that? In general they should be able to write some basic text in english, german, french, as it seems that they&#8217;re able to read the text, quite good enough to be able to add their own comment/opinion. So why don&#8217;t they do so?<br/>
+Let&#8217;s try to get behind the reason. Following I&#8217;ll show you how I handle comments in languages I don&#8217;t understand, with an example I received the last day:</p>
+
+<h2>The Comment</h2>
+
+<p>So let&#8217;s take a look at the given Comment(to avoid contribution to this Spammer/Hacker, I replaced some Data):<br/>
+<code>1000 Ñ„�?¾Ñ€Ñƒ�?¼�?¾�?² 2 �?´�?¾�?»�?»�?°Ñ€�?° 5000 Ñ„�?¾Ñ€Ñƒ�?¼�?¾�?² 8 �?´�?¾�?»�?»�?°Ñ€�?¾�?² 10000 Ñ„�?¾Ñ€Ñƒ�?¼�?¾�?² 13 �?´�?¾�?»�?»�?°Ñ€�?¾�?² 50000 Ñ„�?¾Ñ€Ñƒ�?¼�?¾�?² 50 �?´�?¾�?»�?»�?°Ñ€�?¾�?²<br/>
+�?‘�?¾�?½ÑƒÑ? �?¿Ñ€�?µ�?´�?»�?¾�?¶�?µ�?½�?¸�?µ �?´�?»Ñ? Ñ‚�?µÑ… �?ºÑ‚�?¾ �?·�?°�?º�?°�?¶�?µÑ‚ 20000 Ñ„�?¾Ñ€Ñƒ�?¼�?¾�?² Ñ‡�?µÑ€�?µ�?· �?½�?µ�?´�?µ�?»ÑŽ �?¿�?¾�?²Ñ‚�?¾Ñ€�?½�?°Ñ? �?¾Ñ‚�?¿Ñ€�?°�?²�?º�?°<br/>
+�?� �?µÑ„�?¿Ñ€�?µ�?´�?»�?¾�?¶�?µ�?½�?¸�?µ: Ñ‡�?µ�?»�?¾�?²�?µ�?º �?º�?¾Ñ‚�?¾Ñ€Ñ‹�?¹ �?¿Ñ€�?¸�?²�?µ�?´�?µÑ‚ �?¼�?½�?µ �?º�?»�?¸�?µ�?½Ñ‚�?° �?±Ñƒ�?´�?µÑ‚ �?¿�?¾�?»ÑƒÑ‡�?°Ñ‚ÑŒ 10% �?¾Ñ‚ �?·�?°�?º�?°�?·�?° �?º�?»�?¸�?µ�?½�?º�?°!!!<br/>
+�?ž�?±Ñ€�?°Ñ‰�?°Ñ‚ÑŒÑ?Ñ? �?² �?°Ñ?ÑŽ 3�?¿Ñ?Ñ‚ÑŒ3-8Ñˆ�?µÑ?Ñ‚ÑŒ7-0�?½�?¾�?»ÑŒ1  �?¼Ñ‹�?»�?¾ mymail(�?³�?°�?²)example.com</code><br/>
+That one made me curious as there are quite some numbers added, as well as an additional email is added which doesn&#8217;t fit to the input in the Email field. Let&#8217;s check that Comment by translating it in our native language or some language we understand.</p>
+
+<h3>Translating the Comment</h3>
+
+<p>In general I can recommend to translate it into your native language, as you mostly understand that one best. On the other hand the chosen translator, has maybe your language not available(or the dictionary is quite limited), or it&#8217;s not possible to translate between these languages directly.<br/>
+You should avoid to have the text translated more than once before it&#8217;s in some language you understand, as the general problem with automatic translations are: that not the best sentence structure and word choosing is done. So you could end upon two or three translations steps within some nonsense text(that wouldn&#8217;t be better). The best way maybe, to let it translate to English, and if you don&#8217;t understand some english words let them be translated to your native language.<br/>
+for the example above we would get something like that:<br/>
+<code>1000 forums 2 dollars of 5000 forums of 8 dollars of 10000 forums of 13 dollars of 50000 forums of 50 dollars the Bonus the offer for those who will order 20000 forums in a week repeated sending �?� �?µÑ„�?¿Ñ€�?µ�?´�?»�?¾�?¶�?µ�?½�?¸�?µ: the person which will result to me the client will receive 10 % from the order �?º�?»�?¸�?µ�?½�?º�?°!!! To address in �?°Ñ?ÑŽ 3Â»nÃ��?Ã½3-8ÃžÃ‘ÃŸÃ��?Ã½7-0Â¡Â«Â½Ã½1 soap mymail (�?³�?°�?²) example.com</code><br/>
+That makes now quite more sense, doesn&#8217;t it? It seems as that&#8217;s the pricelist for Spamming of Forums, we even see that we get 10% of the profit from something!</p>
+
+<h3>Translate unknown words</h3>
+
+<p>Now we know quite surely that this is a Spam comment, but as you can see as well, we have some not translated words, like <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong>(these can be sometimes important) so let&#8217;s have them translated as well, don&#8217;t we want to know how to receive our 10%?<br/>
+If you&#8217;re using some good Translator, you should have the option to have unknown words transliterated into the target language. So for our <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong> we would get something like:<strong>klienka</strong> that sounds like client. Let&#8217;s guess that we receive 10% of the Money the client pay for his contract.</p>
+
+<h3>Deciding dropping or keeping?</h3>
+
+<p>Now you should have enough information to decide if it&#8217;s a Spam comment or some legit one. If it&#8217;s Spammy it shouldn&#8217;t be hard to decide, if it&#8217;s some legit Comment I advice to keep the initial comment and add below it the translation. If you like you can as well improve the comment, but note explicit where you made changes!</p>
+
+<h2>Some good online Translators</h2>
+
+<p>Where can I get my text translated to some other language?<br />
+Just search for some <em>Translate/Translation <strong>From-Language</strong> <strong>to-language</strong></em> and you should find some useful result. A good translator is <a href="http://www.online-translator.com">PROMT</a>, there you&#8217;re able to translate some texts as whole(no word for word translations) of some languages, or <a href="http://babelfish.altavista.digital.com">Babelfish</a>. If you need to get some words translated into your language search for some dictionary for the given languages.</p>
+
+<h2>Conclusion</h2>
+
+<p>As you see, it&#8217;s better to prove comments of other languages as well(these will often pass Spamfilter) for Spam. If you can&#8217;t get the comment translated, it&#8217;s mostly better to keep the comment back or to drop it. From my point of view it&#8217;s better to have one or two legit comments less than to have one Spammy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to prevent most of the SPAM]]></title>
+    <link href="http://philnate.me/blog/2007/10/21/how-to-prevent-most-of-the-spam/"/>
+    <updated>2007-10-21T17:23:00+02:00</updated>
+    <id>http://philnate.me/blog/2007/10/21/how-to-prevent-most-of-the-spam</id>
+    <content type="html"><![CDATA[<p>As Spam is a real big Problem within the Internet, today nearly no one gets around it, as Internet consumer(someone who doesn&#8217;t offer own communication platforms) you may not notice that Problem too much, maybe you didn&#8217;t even noticed it really. But it&#8217;s definitely a real Problem, Spam is everywhere.<br/>
+You get it with your Daily Emails, already when you input your Email once to some untrustworthy Mailing list or application, and from that date it never will stop again. If you&#8217;re lucky that&#8217;s everything where you get into contact with Spam, as soon as you own some Blog/Forum aso. your Spam contact will be much bigger. How can I now prevent these platforms from Spam?</p>
+
+<h2>Registered Users only</h2>
+
+<p>One Option which is widely used is to allow Postings only to registered Users. This keeps out every Spambot who doesn&#8217;t have a routine to register to this platform(or to register in general). Additional many registering processes require that the email is validated, if that doesn&#8217;t happen the account will not be able to use this Account. Again that will prevent many Spambots from Posting Spam, as many Bots do have some registering routine, but they don&#8217;t use valid Email Accounts and/or don&#8217;t do the needed steps to activate the platform account.</p>
+
+<h3>What&#8217;s the reason that they don&#8217;t do this?</h3>
+
+<p>Mostly it&#8217;s the reason that there are enough platforms outside who still doesn&#8217;t use such a protection mechanism. Sadly that method may take away some Users, who would like to post some Comment/Post, but they&#8217;re not willed to create therefore some Useraccount just for one or two single contributions. The reason why they&#8217;re not willed to do so is,(you will know it mostly as you&#8217;ll surely think similar) is that they&#8217;re afraid of getting Spammed on their Email. And that only because he registered at some small website who delivers your Email to some Spam mailer.<br/>
+Fortunately there&#8217;s a way to receive Contributions from non-Members, and that without a big level of Spam you&#8217;ll have to fight with.</p>
+
+<h2>Spamblock and -labeling</h2>
+
+<p>One reason wasn&#8217;t mentioned above explicit, but you could read it between the lines. Maybe you, the platform owner, want although to catch the users who don&#8217;t want to register at your site just for a single post. But this position don&#8217;t needs to be negative for you. There are many solutions out who are really nice and widely used, so proved to work well.<br/>
+In general I see three different kinds of applications, who mostly differ between what needs to be done in future by yours:</p>
+
+<h3>Install and care yourself about</h3>
+
+<p>These kinds of Software is just installed, then the User needs to add what words will block the user contribution, that kind of blocking was more commonly in the early days of spam, where no services where available to Check Messages for Spam. You have to take care of the filter list, as the spam messages get changed regularly. At some point you&#8217;re within a dead end, the spam messages doesn&#8217;t contain any words you can block without blocking potentially legit posts. This kind of App, isn&#8217;t doing too well any more as Spam gets changed regularly, and sometimes don&#8217;t even appear a human to be Spam on the first moment. The mentioned problem is more likely to happen on Websites which handle common Spam themes like Real Estate, Pharmacy and so on.<br/>
+An example Can be get here for <a href="http://www.phpbb.com/community/viewtopic.php?f=15&amp;amp;t=354376&amp;amp;st=0&amp;amp;sk=t&amp;amp;sd=a">phpBB</a></p>
+
+<h2>Human or Bot Tests</h2>
+
+<p>Some quite well working approach is to decide upon a Message, is Spam or not, is to ask for something which is only doable by a human. The best example is the CAPTCHA, the user is asked to type in some Letters and Numbers from a picture in order to be able to post the Message(or tagging it as no-Spam). But you need to be careful, there are already some Bots out who can read early CAPTCHAs or weak ones. On the other hand there are newer CAPTCHAs out which are quite hard to solve even for no handy caped people(just imagine how hard it would be for handy caped ones). Some good CAPTCHA method was developed by <a href="http://research.microsoft.com/asirra/">Microsoft</a> you&#8217;re given 9 Photos of Dogs and Cats and you have to select only the Cats/or Dog ones. The project is called <strong>Asirra</strong> (Animal Species Image Recognition for Restricting Access) and is powered with photos by <a href="http://petfinder.com">Petfinder.com</a><br/>
+Then you have some Checkboxes you need to click if you&#8217;re a human(this is nowadays no problem for Bots any more, as they fill in every field). Another idea is to ask to calculate two values together through some addition, subtraction. This one is quite hard to solve for them, a newer version of it is to ask some questions which needs to be answered.</p>
+
+<h3>Spamlabeling as Service</h3>
+
+<p>Nowadays you&#8217;re served with Webservices who check your Email/Comments. These are used by many users and do catch the latest Spam quite fast, every User is able to improve the Ruleset as he can report false positives or not caught Spam. The best Example would be the well known <a href="http://akismet.com">Akismet</a>.<br/>
+These services are mostly the future of Spamblocking as your work is quite low at all, and you have a real good rate of false positives to catched Spam.</p>
+
+<h2>Conclusion</h2>
+
+<p>Spam is a really heavy Problem, since some years and will mostly stay another few years as long as no worldwide antispam act is done, so the Spammer can be suit everywhere one the world. But you have since the start some really good Protect mechanism, and fighting Spam was never easier before with Services like Akismet. Don&#8217;t belong to the People who loose time and money through Spam. Fight it, you&#8217;ll not regret it!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Stealing is bad]]></title>
+    <link href="http://philnate.me/blog/2007/10/04/why-stealing-is-bad/"/>
+    <updated>2007-10-04T13:42:00+02:00</updated>
+    <id>http://philnate.me/blog/2007/10/04/why-stealing-is-bad</id>
+    <content type="html"><![CDATA[<p>I never thought about such an step by myself, maybe as I never encountered such a thing upto date.<br/>
+But if you run your own Webspace you should never steal any ones content or bandwidth. Then as soon as he notice it you can get some real problems, maybe he starts a lawsuite against yours(you maybe ignored some copyright laws, you caused some additional costs for him(bandwidth)). What does happen if he simply replaces the content/redirects your website to something which does harm your visitors, or does blame you?<br/>
+On the Following <a href="http://wordpress.org/support/topic/96098">WordPress Topic</a> you&#8217;ll can read that someone linked to some JS of Website_A. This JS is the Output of some public free available WP Plugin, the JS code even mentions that it&#8217;s generated by some Plugin. But somehow the owner of Website_B was too lazy, or wanted to save some bandwidth that he simply linked to this JS file, on Website_A.<br/>
+After the owner of Website_A recognized that someone was stealing his Bandwidth he created some mod_Rewrite Rule which redirected the Request from this JS to some other JS file, which contained an alertbox which appeared in front of the Visitor and told him that this Website steals some Traffic from another one. After one month the owner of Website_B discovered that JS change and removed the JS.<br/>
+But it&#8217;s important to say that theoretically the owner of Website_A could have written any JS code into that file. So he could steal some Cookies of the Users of Website_B or anything else he would like, he could even start some Phishing attack.<br/>
+The owner of Website_B made his website vulnerable because he was to lazy to get the script itself.<br/>
+Every good Webmaster/Site owner does not steal any content, as this is unethical and maybe more important dangerous!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to get PHP5 working on Debian 3.1]]></title>
+    <link href="http://philnate.me/blog/2007/09/13/how-to-get-php5-working-on-debian-3-dot-1/"/>
+    <updated>2007-09-13T22:28:00+02:00</updated>
+    <id>http://philnate.me/blog/2007/09/13/how-to-get-php5-working-on-debian-3-dot-1</id>
+    <content type="html"><![CDATA[<p>It took me ages to get my server updated to PHP5. I&#8217;ve tried multiple ways to get it working as well compiling the sources itself&#8230;(Yeah I&#8217;m quite new to Linux and it&#8217;s install behaves and blame me if you like, but I like the easy way not the hard one)<br/>
+But I got none working except I found today that <a href="http://www.debianhelp.co.uk/apachephp5.htm">post</a>, it&#8217;s quite short but it is totally enough. I&#8217;ve got everything I need to run my PHP now under the Version 5.<br/>
+Ok it wasn&#8217;t exactly as in the Post stated, I had to install as well php5-mysql, to get the database running again and I didn&#8217;t needed to create softlinks to php5.conf &amp; php5.load, but it still was quite easy no need to compile the source code yourself&#8230; <br/>
+With that post I&#8217;m adding as well some New Category Webserver where I take notes for everyone Public, but mostly they&#8217;re for my personal usage for the case that I should need them again.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[http:BL - remedy or just painkiller?]]></title>
     <link href="http://philnate.me/blog/2007/05/21/httpbl---remedy-or-just-painkiller/"/>
     <updated>2007-05-21T00:00:00+02:00</updated>
     <id>http://philnate.me/blog/2007/05/21/httpbl&#8212;remedy-or-just-painkiller</id>
-    <content type="html"><![CDATA[<p>Included file &#8216;JB/setup&#8217; not found in _includes directory
-As you surely noticed already a few weeks ago, Project Honey Pot announced that they&#8217;re now also <a href="http://www.projecthoneypot.org/5days_tuesday.php">tracking Comment Spammers</a>. And they&#8217;re doing it quite successfully, the current rate of newly catched spammers is around 100 per day. Part of the success is for sure the the http:BL Plugin for WordPress, which can be grabbed <a href="http://stepien.com.pl/2007/04/28/httpbl_wordpress_plugin/">here</a>. Which made http:BL more known, and in order to use this Plugin you need a Project Honey Pot Account and if you have an account it&#8217;s not much work to get your own Honey Pot.</p>
+    <content type="html"><![CDATA[<p>As you surely noticed already a few weeks ago, Project Honey Pot announced that they&#8217;re now also <a href="http://www.projecthoneypot.org/5days_tuesday.php">tracking Comment Spammers</a>. And they&#8217;re doing it quite successfully, the current rate of newly catched spammers is around 100 per day. Part of the success is for sure the the http:BL Plugin for WordPress, which can be grabbed <a href="http://stepien.com.pl/2007/04/28/httpbl_wordpress_plugin/">here</a>. Which made http:BL more known, and in order to use this Plugin you need a Project Honey Pot Account and if you have an account it&#8217;s not much work to get your own Honey Pot.</p>
 
 <h3>http:BL the success</h3>
 
@@ -52,8 +167,7 @@ http:BL is just a painkiller which makes it liveable with Spam, at least for Use
     <link href="http://philnate.me/blog/2007/05/06/be-nice-give-your-visitors-some-sweet/"/>
     <updated>2007-05-06T00:00:00+02:00</updated>
     <id>http://philnate.me/blog/2007/05/06/be-nice-give-your-visitors-some-sweet</id>
-    <content type="html"><![CDATA[<p>Included file &#8216;JB/setup&#8217; not found in _includes directory
-Aren&#8217;t you bugged of all this evil around you and in the world? Not Even the Internet is a nice place.<br/>
+    <content type="html"><![CDATA[<p>Aren&#8217;t you bugged of all this evil around you and in the world? Not Even the Internet is a nice place.<br/>
 Everywhere are phisher, Spammer, Harvester, Viruses, Trojans and so on. But that&#8217;s no reason not to give some love to your visitors by handling them over some sweet( for sure in digital kind!).<br/>
 I mean if no one starts to be nice, the web never changes.</p>
 
@@ -102,8 +216,7 @@ And for phpBB is a Knowledge article <a href="http://www.phpbb.com/kb/article/ht
     <link href="http://philnate.me/blog/2007/04/07/having-fun-with-google/"/>
     <updated>2007-04-07T00:00:00+02:00</updated>
     <id>http://philnate.me/blog/2007/04/07/having-fun-with-google</id>
-    <content type="html"><![CDATA[<p>Included file &#8216;JB/setup&#8217; not found in _includes directory
-Are you bored and don&#8217;t know what to do? Ever tried to have fun while working with Google?<br/>
+    <content type="html"><![CDATA[<p>Are you bored and don&#8217;t know what to do? Ever tried to have fun while working with Google?<br/>
 No?<br/>
 You have to try it, it can be real fun!</p>
 
@@ -155,8 +268,7 @@ Here are the links again:<br/>
     <link href="http://philnate.me/blog/2007/03/17/html---this-is-the-reality/"/>
     <updated>2007-03-17T00:00:00+01:00</updated>
     <id>http://philnate.me/blog/2007/03/17/html&#8212;this-is-the-reality</id>
-    <content type="html"><![CDATA[<p>Included file &#8216;JB/setup&#8217; not found in _includes directory
-Google <a href="http://code.google.com/webstats/index.html">crawled in 2005</a> around a billion pages to find out what Tags and Tag attributes are used within them.</p></p>
+    <content type="html"><![CDATA[<p>Google <a href="http://code.google.com/webstats/index.html">crawled in 2005</a> around a billion pages to find out what Tags and Tag attributes are used within them.</p></p>
 
 <h3>General</h3>
 
@@ -195,10 +307,28 @@ Take a look at the Study for yourself, it&#8217;s worth looking.</p></p>
     <link href="http://philnate.me/blog/2005/10/25/tip-of-the-week/"/>
     <updated>2005-10-25T00:00:00+02:00</updated>
     <id>http://philnate.me/blog/2005/10/25/tip-of-the-week</id>
-    <content type="html"><![CDATA[<p>Included file &#8216;JB/setup&#8217; not found in _includes directory
-I&#8217;m happy to announce that the <strong>Tip: Fake-Transparency for UserControls</strong>, is taken as Tip of the Week 24.10-30.10 on the biggest german Website for VisualBasic, <a href="http://vbarchiv.net">Vb@rchiv.net</a>.<br/>
+    <content type="html"><![CDATA[<p>I&#8217;m happy to announce that the <strong>Tip: Fake-Transparency for UserControls</strong>, is taken as Tip of the Week 24.10-30.10 on the biggest german Website for VisualBasic, <a href="http://vbarchiv.net">Vb@rchiv.net</a>.<br/>
 I feel me now a bit proud and I&#8217;m strengthened that my work, what I do isn&#8217;t so worse as I sometimes see it.<br/>
 I hope that my following tips I will someday release and other coding work will connect on this success.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Restoring Windows]]></title>
+    <link href="http://philnate.me/blog/0207/12/05/restoring-windows/"/>
+    <updated>0207-12-05T23:07:00+00:53</updated>
+    <id>http://philnate.me/blog/0207/12/05/restoring-windows</id>
+    <content type="html"><![CDATA[<p>Just the latest example how stupid I can be sometimes:<br/>
+I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that problematic if it hadn&#8217;t the Boot session on it. Anyway I didn&#8217;t noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
+After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal&#8230;as long as you have your Recovery CD with you, but I didn&#8217;t&#8230;(second time some knocking, was hearable).<br/>
+So my next try was to get some Recovery Application on the base of some small DOS Boot, I found quickly something, anyway it didn&#8217;t worked for XP(at least for my PC it didn&#8217;t).<br/>
+Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <strong>fixmbr</strong>&amp;<strong>fixboot</strong> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:<br/>
+<code><br/>
+bootrec.exe /fixmbr<br/>
+bootrec.exe /fixboot<br/>
+</code><br/>
+I&#8217;ve applied both commands, the had be done correctly and after a Restart I was able to Boot Windows again. The only good point is that I don&#8217;t have to take care on startup if the correct OS is selected, anymore :).<br/>
+A side note for the next time I make any changes to an OS, be sure to have the recovery CD near myself!</p>
 ]]></content>
   </entry>
   
