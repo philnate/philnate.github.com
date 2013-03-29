@@ -1,15 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://philnate.github.com/blog/archives/</loc>
+        <loc>http://philnate.me/blog/2005/10/25/tip-of-the-week/</loc>
+        <lastmod>2013-03-29T17:01:00+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/blog/2007/03/17/html---this-is-the-reality/</loc>
         <lastmod>2013-03-29T16:10:08+01:00</lastmod>
     </url>
     <url>
-        <loc>http://philnate.github.com/robots.txt</loc>
+        <loc>http://philnate.me/blog/2007/04/07/having-fun-with-google/</loc>
         <lastmod>2013-03-29T16:10:08+01:00</lastmod>
     </url>
     <url>
-        <loc>http://philnate.github.com/</loc>
+        <loc>http://philnate.me/blog/2007/05/06/be-nice-give-your-visitors-some-sweet/</loc>
         <lastmod>2013-03-29T16:10:08+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/blog/2007/05/21/httpbl---remedy-or-just-painkiller/</loc>
+        <lastmod>2013-03-29T16:10:08+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/blog/archives/</loc>
+        <lastmod>2013-03-29T17:01:00+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/robots.txt</loc>
+        <lastmod>2013-03-29T16:10:08+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://philnate.me/</loc>
+        <lastmod>2013-03-29T17:01:00+01:00</lastmod>
     </url>
 </urlset>

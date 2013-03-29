@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://philnate.github.com/sitemap.xml 
+Sitemap: http://philnate.me/sitemap.xml 
