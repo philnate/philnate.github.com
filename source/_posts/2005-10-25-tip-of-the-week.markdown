@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Tip of the Week!"
+description: ""
+category: 
+tags: ["visual basic", "tip", "transparency"]
+---
+I'm happy to announce that the **Tip: Fake-Transparency for UserControls**, is taken as Tip of the Week 24.10-30.10 on the biggest german Website for VisualBasic, [Vb@rchiv.net](http://vbarchiv.net).  
+I feel me now a bit proud and I&#8217;m strengthened that my work, what I do isn't so worse as I sometimes see it.  
+I hope that my following tips I will someday release and other coding work will connect on this success.
