@@ -4,7 +4,7 @@
   <title><![CDATA[Category: others | Eventually /dev/null]]></title>
   <link href="http://philnate.me/blog/categories/others/atom.xml" rel="self"/>
   <link href="http://philnate.me/"/>
-  <updated>2013-03-29T23:13:41+01:00</updated>
+  <updated>2013-04-01T14:40:22+02:00</updated>
   <id>http://philnate.me/</id>
   <author>
     <name><![CDATA[Philipp Knobel]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Restoring Windows]]></title>
-    <link href="http://philnate.me/blog/0207/12/05/restoring-windows/"/>
-    <updated>0207-12-05T23:07:00+00:53</updated>
-    <id>http://philnate.me/blog/0207/12/05/restoring-windows</id>
+    <link href="http://philnate.me/blog/2007/12/05/restoring-windows/"/>
+    <updated>2007-12-05T23:07:00+01:00</updated>
+    <id>http://philnate.me/blog/2007/12/05/restoring-windows</id>
     <content type="html"><![CDATA[<p>Just the latest example how stupid I can be sometimes:<br/>
 I've dropped yesterday my Linux Partition from my laptop. It wouldn't be that problematic if it hadn't the Boot session on it. Anyway I didn't noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
 After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal...as long as you have your Recovery CD with you, but I didn't...(second time some knocking, was hearable).<br/>

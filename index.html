@@ -9,7 +9,7 @@
   <meta name="author" content="Philipp Knobel">
 
   
-  <meta name="description" content="Ever got Comments you don&#8217;t understand, because they&#8217;re in some language you&#8217;re not able to speak? Ever asked why someone writes a &hellip;">
+  <meta name="description" content="Introduction Lately I started to learn Test Driven Development (TDD) as I was bugged, by recent flaws. I heard that Kent Beck (re)invented TDD so it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,117 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/">Test Driven Development. By Example (Kurt Beck)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-29T23:34:00+01:00" pubdate data-updated="true">Mar 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Introduction</h2>
+
+<p>Lately I started to learn <em>Test Driven Development (TDD)</em> as I was bugged, by recent flaws. I heard that Kent Beck (re)invented TDD so it obvious to grap a book written by him if available.<br/>
+After a short search I found <em>Test Driven Development. By Example</em>, which gives a really good introduction into TDD.</p>
+
+<h2>The Book &#8211; Overview</h2>
+
+<p>The Book is three parted, each part containing several chapters.</p>
+
+<ul>
+<li>Part I gives an introduction into TDD by writing some Money class</li>
+<li>Part II ?????</li>
+<li>Part III</li>
+</ul>
+
+
+<h3>Part I</h3>
+
+<h3>Part II</h3>
+
+<h3>Part III</h3>
+
+<h3>Conclusion</h3>
+
+<h2>Personal experience</h2>
+
+<p>Practicing TDD really gives a good feeling and improves somewhat the confidence about the code you&#8217;ve written. As it&#8217;s required that you can test everything you don&#8217;t end up with some black-box where some parts can&#8217;t be tested (obviously). I just have seen it too often lately that some bugs where discovered, but the old non TDD code blocked writing a regression test for it. Leaving a really bad feeling that it will eventually break again without noticing it. So getting a book about refactoring legacy code to the good is some of the follow up readings.<br/>
+As TDD is quite new too me, I&#8217;ve catched myself more than once writing the implementation before the actual Tests. But I&#8217;ll guess that&#8217;s just normal in this stage.<br/>
+What I wonder is how you do some quick testing like, <em>does this 3rd party library fulfill my requirements?</em> I encounter this situation quite often, where I write code which is soon dropped as the used library doesn&#8217;t fit my needs. In these situations I don&#8217;t want to be loaded with writing tests for code I&#8217;m most likely dropping soon after again. Once I&#8217;ve found the solution I&#8217;m going to use I&#8217;ll never can write this code TDD.<br/>
+Most likely this shows me that the taken step, was just too big to be solved cleanly in a TDD manner.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/12/05/restoring-windows/">Restoring Windows</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-05T23:07:00+01:00" pubdate data-updated="true">Dec 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Just the latest example how stupid I can be sometimes:<br/>
+I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that problematic if it hadn&#8217;t the Boot session on it. Anyway I didn&#8217;t noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
+After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal&#8230;as long as you have your Recovery CD with you, but I didn&#8217;t&#8230;(second time some knocking, was hearable).<br/>
+So my next try was to get some Recovery Application on the base of some small DOS Boot, I found quickly something, anyway it didn&#8217;t worked for XP(at least for my PC it didn&#8217;t).<br/>
+Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <strong>fixmbr</strong>&amp;<strong>fixboot</strong> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:<br/>
+<code><br/>
+bootrec.exe /fixmbr<br/>
+bootrec.exe /fixboot<br/>
+</code><br/>
+I&#8217;ve applied both commands, the had be done correctly and after a Restart I was able to Boot Windows again. The only good point is that I don&#8217;t have to take care on startup if the correct OS is selected, anymore :).<br/>
+A side note for the next time I make any changes to an OS, be sure to have the recovery CD near myself!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -571,91 +682,9 @@ Take a look at the Study for yourself, it&#8217;s worth looking.</p></p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2005/10/25/tip-of-the-week/">Tip of the Week!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2005-10-25T00:00:00+02:00" pubdate data-updated="true">Oct 25<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;m happy to announce that the <strong>Tip: Fake-Transparency for UserControls</strong>, is taken as Tip of the Week 24.10-30.10 on the biggest german Website for VisualBasic, <a href="http://vbarchiv.net">Vb@rchiv.net</a>.<br/>
-I feel me now a bit proud and I&#8217;m strengthened that my work, what I do isn&#8217;t so worse as I sometimes see it.<br/>
-I hope that my following tips I will someday release and other coding work will connect on this success.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/0207/12/05/restoring-windows/">Restoring Windows</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="0207-12-05T23:07:28+00:53" pubdate data-updated="true">Dec 5<span>th</span>, 0207</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Just the latest example how stupid I can be sometimes:<br/>
-I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that problematic if it hadn&#8217;t the Boot session on it. Anyway I didn&#8217;t noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
-After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal&#8230;as long as you have your Recovery CD with you, but I didn&#8217;t&#8230;(second time some knocking, was hearable).<br/>
-So my next try was to get some Recovery Application on the base of some small DOS Boot, I found quickly something, anyway it didn&#8217;t worked for XP(at least for my PC it didn&#8217;t).<br/>
-Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <strong>fixmbr</strong>&amp;<strong>fixboot</strong> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:<br/>
-<code><br/>
-bootrec.exe /fixmbr<br/>
-bootrec.exe /fixboot<br/>
-</code><br/>
-I&#8217;ve applied both commands, the had be done correctly and after a Restart I was able to Boot Windows again. The only good point is that I don&#8217;t have to take care on startup if the correct OS is selected, anymore :).<br/>
-A side note for the next time I make any changes to an OS, be sure to have the recovery CD near myself!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -668,6 +697,14 @@ A side note for the next time I make any changes to an OS, be sure to have the r
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/">Test Driven Development. By Example (Kurt Beck)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2007/12/05/restoring-windows/">Restoring Windows</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2007/10/28/be-careful-with-approving-comments/">Be careful with approving Comments</a>
       </li>
     
@@ -677,14 +714,6 @@ A side note for the next time I make any changes to an OS, be sure to have the r
     
       <li class="post">
         <a href="/blog/2007/10/04/why-stealing-is-bad/">Why Stealing is bad</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2007/09/13/how-to-get-php5-working-on-debian-3-dot-1/">How to get PHP5 working on Debian 3.1</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2007/05/21/httpbl---remedy-or-just-painkiller/">http:BL - remedy or just painkiller?</a>
       </li>
     
   </ul>
