@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Restoring Windows"
-date: 207-12-05 23:07
+date: 2007-12-05 23:07
 comments: true
 categories: ["others"]
 tags: ["bootloader", "recovery", "windows"]
