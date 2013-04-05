@@ -9,8 +9,7 @@
   <meta name="author" content="Philipp Knobel">
 
   
-  <meta name="description" content="Just the latest example how stupid I can be sometimes:
-I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that &hellip;">
+  <meta name="description" content="Ever got Comments you don&#8217;t understand, because they&#8217;re in some language you&#8217;re not able to speak? Ever asked why someone writes a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,56 +65,6 @@ I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2007/12/05/restoring-windows/">Restoring Windows</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2007-12-05T23:07:00+01:00" pubdate data-updated="true">Dec 5<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Just the latest example how stupid I can be sometimes:<br/>
-I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that problematic if it hadn&#8217;t the Boot session on it. Anyway I didn&#8217;t noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
-After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal&#8230;as long as you have your Recovery CD with you, but I didn&#8217;t&#8230;(second time some knocking, was hearable).<br/>
-So my next try was to get some Recovery Application on the base of some small DOS Boot, I found quickly something, anyway it didn&#8217;t worked for XP(at least for my PC it didn&#8217;t).<br/>
-Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <code>fixmbr</code> and <code>fixboot</code> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bootrec.exe /fixmbr  
-</span><span class='line'>bootrec.exe /fixboot  </span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-I&#8217;ve applied both commands, the had be done correctly and after a Restart I was able to Boot Windows again. The only good point is that I don&#8217;t have to take care on startup if the correct OS is selected, anymore :).<br/>
-A side note for the next time I make any changes to an OS, be sure to have the recovery CD near myself!</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -679,10 +628,6 @@ I hope that my following tips I will someday release and other coding work will 
       </li>
     
       <li class="post">
-        <a href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/">Test Driven Development. By Example (Kurt Beck)</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/">mongosniff: error while loading shared libraries: libpcap.so.0.9</a>
       </li>
     
@@ -692,6 +637,10 @@ I hope that my following tips I will someday release and other coding work will 
     
       <li class="post">
         <a href="/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/">The long and stony way to get Mod_AuthMySQL working</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/01/16/internet-explorer-and-javascript-problems/">Internet Explorer and JavaScript problems</a>
       </li>
     
   </ul>
