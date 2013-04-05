@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: homepage | Eventually /dev/null]]></title>
+  <link href="http://philnate.me/blog/categories/homepage/atom.xml" rel="self"/>
+  <link href="http://philnate.me/"/>
+  <updated>2013-04-05T09:36:35+02:00</updated>
+  <id>http://philnate.me/</id>
+  <author>
+    <name><![CDATA[Philipp Knobel]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Internet Explorer and JavaScript problems]]></title>
+    <link href="http://philnate.me/blog/2010/01/16/internet-explorer-and-javascript-problems/"/>
+    <updated>2010-01-16T14:57:00+01:00</updated>
+    <id>http://philnate.me/blog/2010/01/16/internet-explorer-and-javascript-problems</id>
+    <content type="html"><![CDATA[<p>I've seen in within my two years of JavaScript progamming some weird things, about browser behaviour. But the one I've discovered yesterday tops them all. Some of my JavaScript class use the <code>document.createElement</code> function within it's init procedure. The Script is working fine used within one Website, even with IE. But when the Script is added to another Website, IE complaints that document.createElement isn't supported by this Object. An alert directly before the call is executed shows:<br/>
+<code>javascript
+function createElement() {  
+[native Code]  
+}
+</code><br/>
+But it still doesn't work in IE.<br/>
+Someone ever encountered that problem? I'm currently missing a solutin except the try to manually create the HTML-Node.</p>
+]]></content>
+  </entry>
+  
+</feed>

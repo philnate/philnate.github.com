@@ -4,7 +4,7 @@
   <title><![CDATA[Eventually /dev/null]]></title>
   <link href="http://philnate.me/atom.xml" rel="self"/>
   <link href="http://philnate.me/"/>
-  <updated>2013-04-01T14:40:22+02:00</updated>
+  <updated>2013-04-05T09:36:35+02:00</updated>
   <id>http://philnate.me/</id>
   <author>
     <name><![CDATA[Philipp Knobel]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DB2 Remote Connection]]></title>
+    <link href="http://philnate.me/blog/2013/04/01/db2-remote-connection/"/>
+    <updated>2013-04-01T15:04:00+02:00</updated>
+    <id>http://philnate.me/blog/2013/04/01/db2-remote-connection</id>
+    <content type="html"><![CDATA[<p>As I found out within the last days it isn&#8217;t that easy to find informations about how to connect Java through JDBC with a DB2 Database remotely. So if you should come into these troubles as well, take care of this:<br/>
+As DB2 driver you need to use <em>COM.ibm.db2.jdbc.<strong>net</strong>.DB2Driver</em> which is located in the same file (<code>db2java.zip</code>) as the default driver (<em>COM.ibm.db2.jdbc.<strong>app</strong>.DB2Driver</em>) which is &#8220;promoted&#8221; on most sites. The problem with these two drivers is that they&#8217;re not able to work with the other kind of connection. So If you inserted the <strong>net</strong> driver you can&#8217;t create local connections and vice versa. If you want to be flexible you need to use as driver <code>com.ibm.db2.jcc.DB2Driver</code> which is capable to handle both types of connections. The driver can be found within the <code>db2jcc.jar</code> file, which should be located in the same place as <code>db2java.zip</code>. At least for me it was further needed to provide a license in order to establish a remote connection, to achieve this add a file called <code>db2jcc_license_cu.jar</code> or maybe some file which is similiar named to your Classpath.<br/>
+Connection string: After some search I found the DB2 page where the remote connection string was described. The string has follow this scheme for remote connections: <code>jdbc:db2://SERVERNAME:PORT/DATABASE</code>.<br/>
+Not sure if you can leave the DATABASE and run later a <em>Connect to DATABASE</em> Query. At least my quick tries resulted each time with an Exception caused by wrong connection strings.<br/>
+If you don&#8217;t know on which port your DB2 Instance is running take a look at your <code>/etc/services</code> and look for the corresponding line.<br/>
+Now you should be ready to successfully open a remote Connection.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Test Driven Development. By Example (Kurt Beck)]]></title>
@@ -52,6 +66,178 @@ Most likely this shows me that the taken step, was just too big to be solved cle
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[mongosniff: error while loading shared libraries: libpcap.so.0.9]]></title>
+    <link href="http://philnate.me/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/"/>
+    <updated>2012-03-28T17:26:00+02:00</updated>
+    <id>http://philnate.me/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9</id>
+    <content type="html"><![CDATA[<p>Lately I&#8217;ve worked with <a href="http://mongodb.org">mongoDB</a> which is a great NoSQL database. A tool which can come in handy is <a href="http://mongodb.org/display/DOCS/mongosniff">mongosniff</a>, which comes with mongodb binaries. Mongosniff is something like tcpdump for TCP/IP.<br/>
+On my Fedora 16 x86_64 System I&#8217;m running mongodb binaries available from mongodb, this allows me to easily run the version I want. But mongosniff didn&#8217;t worked right out the box for it. When starting mongosniff I got following error: <strong>mongosniff: error while loading shared libraries: libpcap.so.0.9: cannot open shared object file: No such file or directory</strong>.  So this mostly means that libpcap isn&#8217;t installed, but this wasn&#8217;t the case as you can see soon.<br/>
+My first try was to install libpcap for my system but this didn&#8217;t solve the problem. A lookup with <code>ldd</code> showed that indeed libpcap.so.0.9 was missing for it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$:</span> ldd /usr/bin/mongosniff
+</span><span class='line'>       linux-vdso.so.1 <span class="o">=</span>&gt;  <span class="o">(</span>0x00007fffa30d2000<span class="o">)</span>
+</span><span class='line'>       libpthread.so.0 <span class="o">=</span>&gt; /lib64/libpthread.so.0 <span class="o">(</span>0x0000003ef0400000<span class="o">)</span>
+</span><span class='line'>       libstdc++.so.6 <span class="o">=</span>&gt; /usr/lib64/libstdc++.so.6 <span class="o">(</span>0x0000003655a00000<span class="o">)</span>
+</span><span class='line'>       libpcap.so.0.9 <span class="o">=</span>&gt; not found
+</span><span class='line'>       libm.so.6 <span class="o">=</span>&gt; /lib64/libm.so.6 <span class="o">(</span>0x0000003ef1000000<span class="o">)</span>
+</span><span class='line'>       libgcc_s.so.1 <span class="o">=</span>&amp;gt; /lib64/libgcc_s.so.1 <span class="o">(</span>0x0000003654600000<span class="o">)</span>
+</span><span class='line'>       libc.so.6 <span class="o">=</span>&gt; /lib64/libc.so.6 <span class="o">(</span>0x0000003ef0000000<span class="o">)</span>
+</span><span class='line'>       /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x0000003eefc00000<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A check if any libpcap module was available showed that a too new version was installed and that a symlink as libpcap.so.0.9 was missing:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$:</span> ls /usr/lib64/libpcap*
+</span><span class='line'>/usr/lib64/libpcapnav.so        /usr/lib64/libpcapnav.so.0
+</span><span class='line'>/usr/lib64/libpcap.so.1         /usr/lib64/libpcapnav.so.0.0.0
+</span><span class='line'>/usr/lib64/libpcap.so.1.1.1     /usr/lib64/libpcap.so
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So creating a symlink for libpcap.so.0.9 solved the startup problem: <code>ln -s /usr/lib64/libpcap.so.1.1.1 /usr/lib64/libpcap.so.0.9</code>. If you&#8217;re running a 32bit mongodb version you may check your <code>/usr/lib</code> to see if the required libpcap is missing. Don&#8217;t know if this problem still exists if you&#8217;re running mongodb from the offical repositoy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[crontab -r -- a logic gap?]]></title>
+    <link href="http://philnate.me/blog/2010/03/09/crontab-r-a-logic-gap/"/>
+    <updated>2010-03-09T15:02:00+01:00</updated>
+    <id>http://philnate.me/blog/2010/03/09/crontab-r-a-logic-gap</id>
+    <content type="html"><![CDATA[<p>Just worked a bit with crontab to edit some no longer working cron job. But instead of typing <code>crontab -e</code> I had written <code>crontab -r</code>, without any warning or notice my crontab was dropped! What&#8217;s the logic behind that behaviour? Isn&#8217;t the normal, userfriendly way, that you have to confirm you want to drop something? All Programms I can remember want a confirmation for not saving data or dropping some file, or even for exiting.<br/>
+I could life with the problem, if it wouldn&#8217;t be too likely to do the typo. But the keys are on a normal qwert(y|z) keyboard next to the other one, so a typo isn&#8217;t that unlikely. To avoid the problem I need to add the parameter -i to it, to be asked If I&#8217;m sure I want drop that crontab. Since when do I need to add additional parameter to have a higher <em>security</em> level? Normally you need to add parameters to avoid such behaviour not to initialize it.<br/>
+But as I just see my crontab version is even the userfriendly one(on Debian 5 amd64), which offers such a parameter <em>-i</em>. The standard BSD(as on Debian 4 x86) one hasn&#8217;t this parameter nor does <em>-r</em> ask the user to confirm the operation.<br/>
+Anyone knows why it behaves that way, I mean a multiliner crontab isn&#8217;t too nice to be lost by accident?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The long and stony way to get Mod_AuthMySQL working]]></title>
+    <link href="http://philnate.me/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/"/>
+    <updated>2010-01-20T14:59:00+01:00</updated>
+    <id>http://philnate.me/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working</id>
+    <content type="html"><![CDATA[<p>Somedays it&#8217;s really hard to come along with Linux, it&#8217;s apps and tools. Recently I&#8217;ve tried to use AuthMySQL for authentication within a certain webfolder. To reach this, many trails and even more errors were needed :(.<br/>
+The first point was to configure the module correctly, which isn&#8217;t that easy, as no post tells which version of AuthMySQL is used nor that there are two of them out, additionally it seems that the module can handle at least partially both directives, but later more.<br/>
+I&#8217;ve searched quickly for some resources about how to configure AuthMySQL, some of the commands worked other didn&#8217;t. After several tries with extensive watching the apache error.log I finally managed to get the authentication running, upto the point of the used Encryption. The first try was to use MD5, but sadly the module did not support that value, although somewhere was talked about it (later I encountered it was for the other module). No Problem there&#8217;s another MD5 Setting, let&#8217;s switch to that one (Crypt_MD5), now AuthMySQL was working, but didn&#8217;t accepted the login details. A google search later I discovered that Crypt_MD5 uses a default Salt of 12 signs (or so) to encrypt the passwords, but my password is encrypted with md5, so no way to get it working. After a few searches why md5 isn&#8217;t working with my version of the module I found that <a href="http://www.php-resource.de/forum/showthread/t-34784.html">forum entry</a> which revealed that there are two modules out, which offer Authentication through MySQL.<br/>
+But as I already supposed Debian doesn&#8217;t offer a package for the other module or I didn&#8217;t find it, anyway I got to the <a href="http://modauthmysql.sourceforge.net">website of the other module</a> and downloaded it&#8217;s source code. A fast lookup on howto compile and install modules for apache showed that I need to run apxs. But for my debian install the application wasn&#8217;t installed, you need to get some apache-dev package to install apxs. A few minutes later I&#8217;ve got a matching package and installed it. Next problem: while compiling apxs throws an error 65536, but luckily I found soon an patch, in this <a href="http://www.zoosau.de/technik/mod_auth_mysql-fur-apache22x-kompilieren">blog entry</a> a patch is supplied so that the module was successful compiled under my linux installation.<br/>
+The needed renaming of the module directives was done quickly and finally I got the authentication through MySQL working.<br/>
+Alltogether it took a few hours to get that simple job working, anyway I&#8217;ve increased my knowledge about Apache and Linux, which isn&#8217;t that bad :).<br/>
+Maybe this post will help the one or other to solve his problems quicker, as it contains quite well condensed errors and their solution.<br/>
+If you want to use AuthMySQL get this <a href="http://modauthmysql.sourceforge.net">version</a> as it supplies in my eyes the best functionality. The easiest way to differ both versions is that one requires underlines within the directives and the other one doesn&#8217;t (the one which is linked).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Internet Explorer and JavaScript problems]]></title>
+    <link href="http://philnate.me/blog/2010/01/16/internet-explorer-and-javascript-problems/"/>
+    <updated>2010-01-16T14:57:00+01:00</updated>
+    <id>http://philnate.me/blog/2010/01/16/internet-explorer-and-javascript-problems</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve seen in within my two years of JavaScript progamming some weird things, about browser behaviour. But the one I&#8217;ve discovered yesterday tops them all. Some of my JavaScript class use the <code>document.createElement</code> function within it&#8217;s init procedure. The Script is working fine used within one Website, even with IE. But when the Script is added to another Website, IE complaints that document.createElement isn&#8217;t supported by this Object. An alert directly before the call is executed shows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">createElement</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'><span class="p">[</span><span class="kr">native</span> <span class="nx">Code</span><span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+But it still doesn&#8217;t work in IE.<br/>
+Someone ever encountered that problem? I&#8217;m currently missing a solutin except the try to manually create the HTML-Node.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mbox to .eml Converter]]></title>
+    <link href="http://philnate.me/blog/2009/05/27/mbox-to-eml-converter/"/>
+    <updated>2009-05-27T14:55:00+02:00</updated>
+    <id>http://philnate.me/blog/2009/05/27/mbox-to-eml-converter</id>
+    <content type="html"><![CDATA[<p>If you need to extract all mails from a single mbox file to seperate .eml files, take a look at this <a href="http://www.opera-fansite.de/files/Mbox2eml_DEU.zip">tool</a>. I had recently the need to do so, and this tool was just perfect for it. It lets you choose which files to extract from mbox to .eml. In order to import a normal GNU/Linux (any *nix?) mbox into the tool, you need to set as file-ending <code>.mbx</code>. The Only restriction is that it can only handle western character sets, but not sure if that&#8217;s a big problem, aren&#8217;t most Emails still in latin?<br/>
+To run the tool you need to have installed Java Runtime 1.2 or higher</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WordPress(/PHP) and the Byte Order Mask (BOM)]]></title>
+    <link href="http://philnate.me/blog/2008/09/28/wordpress-slash-php-and-the-byte-order-mask-bom/"/>
+    <updated>2008-09-28T14:51:00+02:00</updated>
+    <id>http://philnate.me/blog/2008/09/28/wordpress-slash-php-and-the-byte-order-mask-bom</id>
+    <content type="html"><![CDATA[<p>A few days ago I started to write since some time a Plugin for WordPress again, for a customer. As I read over on WordPress you shall declare the files as UTF-8, but I would have changed it myself as well. Now after some initial testings I encountered this Problem:<br/>
+<code>
+<strong>Warning:</strong> Cannot modify header information - headers already sent by (output started at /xampp/htdocs/blog/wp-content/plugins/phRelatedLinks.php:1) in /xampp/htdocs/blog/wp-includes/pluggable.php on line 776)<br/>
+</code><br/>
+Ah yeah&#8230;some known Problem within the WordPress Universe and the PHP one as well, caused by the Problem that infront of the starting <code>&lt; ?php</code> are some other signs. Now when WordPress wants to send the header Information of the Page the whitespace/sign was already sent, but the header needs to be the first part of the website which is sent&#8230;therefore PHP throws this error.<br/>
+Unfortunally this wasn&#8217;t the case for my Problem. As I had no clue what it could be else I searched for some time, and anything I could find told it&#8217;s a problem with leading signs before <code>&lt; ?php</code>. Luckily I found <a href="http://robv.de/read/headers-already-sent-durch-wordpress-plugin">this Post with the same Problem</a>, which solved it.<br/>
+While saving my file with SciTE as <em>UTF-8</em>, SciTE added a Byte Order Mask to the file, which isn&#8217;t needed at all as UTF-8 doesn&#8217;t encounter differences between big-Endian and little-Endian. Anyway it&#8217;s now widely used to easily tell apart <em>UTF-8</em> and <em>ISO-8859</em>. So if a file contains as starting Bytes: <code>EF BB BF</code> it&#8217;s (mostly) a <em>UTF-8</em> formatted file. But as these Bytes aren&#8217;t displayed within SciTE at all, you can go crazy with it. To write a file without this optional BOM you need to select as Encoding <em>UTF-8 Cookie</em> within SciTE.<br/>
+Now the real cause was found, and it wasn&#8217;t WordPress who tried to drive me crazy at all. A look within PHP revealed that PHP isn&#8217;t able to interpret these Bytes as mark for a following <em>UTF-8</em> Encoding. The <a href="http://bugs.php.net/bug.php?id=22108">related Bug Post</a> was closed as won&#8217;t fix for PHP 5/4, the correct behavior will be implemented with PHP 6+.<br/>
+In the meantime I hope that not too many other people will encounter that Problem and if, they&#8217;re able to find the solution faster than me!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Image.onload() Problems]]></title>
+    <link href="http://philnate.me/blog/2008/09/24/image-dot-onload-problems/"/>
+    <updated>2008-09-24T14:48:00+02:00</updated>
+    <id>http://philnate.me/blog/2008/09/24/image-dot-onload-problems</id>
+    <content type="html"><![CDATA[<p>Since a while I&#8217;m working with Javascript. I have to say, that it&#8217;s for sure not that hard to write cross-browser Source Code, like it&#8217;s still with CSS. But some parts aren&#8217;t easy to get them working. A recent problem is indeed the image.onload. At first it&#8217;s obviously that you should register an onload EventListener, before you assign an Image, like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">image</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;let&#39;s do something in here!&quot;</span><span class="p">);};</span>
+</span><span class='line'><span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;myURL&quot;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+As it&#8217;s quite possible that the other way around, the picture is already loaded before the EventListener is registered.<br/>
+But Hey! That&#8217;s no reason to make this mistake a few times&#8230;Now after you solve that self-made problem you can run into the next one! Opera calls the onload Event, only if the Object is newly created or the Image loaded isn&#8217;t already cached. That&#8217;s the state of <em>Opera 7.5</em>, as I read several times on various sites, this problem was fixed with <em>Opera 8.x</em>. But now it seems that this Problem is back with <em>Opera 9.26+</em>( or earlier).<br/>
+Unfortunately my Script needs to be noticed everytime a new Image is loaded, although it may already be cached. The only way I&#8217;m aware of getting what I want, is to disable the Cache of Opera, through Opera&#8217;s settings or per HTTP Header. Ok another way would be a function which looks the whole time if the image is changing, but both aren&#8217;t that what I&#8217;m searching for. Someone knows if it&#8217;s possible to get some real onload for Images in Opera, without any of the previously mentioned <em>hack</em>?<br/>
+Or can Opera fix this problem? It&#8217;s working correctly in IE, why not in Opera?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[find: missing argument to `-exec`]]></title>
+    <link href="http://philnate.me/blog/2008/03/07/find-missing-argument-to-exec/"/>
+    <updated>2008-03-07T14:45:00+01:00</updated>
+    <id>http://philnate.me/blog/2008/03/07/find-missing-argument-to-exec</id>
+    <content type="html"><![CDATA[<p>That&#8217;s maybe some common Error you&#8217;re receiving, when you&#8217;re new to <strong>find and the exec</strong> parameter. So I encountered the Problem as well.<br/>
+After a short research within the man page of find the problem was found: <code>;</code> needs to be escaped with a Backslash <code>\</code>. The look over to my commandline just showed that this was already the case. Now the internet was asked and most results just reveal the same thing: escape the <code>;</code> with a Backslash.<br/>
+Some hits later I found a <a href="http://www.bimminger.at/content/beitrag/tipp_linux_suche_in_datei_bestimmter_inhalt.html">german page</a> where they told that it&#8217;s even required that the <code>\;</code> is separated from the previous commands with a space <code> \;</code>. So it&#8217;s not enough to write:</p>
+
+<figure class='code'><figcaption><span>wrong invocation</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>find &lt;query&gt; -exec &lt;<span class="nb">command</span>&gt;<span class="o">{}</span><span class="se">\;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>,
+it needs to be (notice the extra whitespace between <code>command</code> and <code>{}</code>):</p>
+
+<figure class='code'><figcaption><span>correct invocation</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>find &lt;query&gt; -exec &lt;<span class="nb">command</span>&gt; <span class="o">{}</span> <span class="se">\;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well from my point of view some mistake which can be fast overseen, even more if you suppose that <code>{}\;</code> should work out nicely as it&#8217;s something which occurs often or everytime within the exec(at least these groups of signs).</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Restoring Windows]]></title>
     <link href="http://philnate.me/blog/2007/12/05/restoring-windows/"/>
     <updated>2007-12-05T23:07:00+01:00</updated>
@@ -60,11 +246,15 @@ Most likely this shows me that the taken step, was just too big to be solved cle
 I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that problematic if it hadn&#8217;t the Boot session on it. Anyway I didn&#8217;t noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
 After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal&#8230;as long as you have your Recovery CD with you, but I didn&#8217;t&#8230;(second time some knocking, was hearable).<br/>
 So my next try was to get some Recovery Application on the base of some small DOS Boot, I found quickly something, anyway it didn&#8217;t worked for XP(at least for my PC it didn&#8217;t).<br/>
-Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <strong>fixmbr</strong>&amp;<strong>fixboot</strong> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:<br/>
-<code><br/>
-bootrec.exe /fixmbr<br/>
-bootrec.exe /fixboot<br/>
-</code><br/>
+Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <code>fixmbr</code> and <code>fixboot</code> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bootrec.exe /fixmbr  
+</span><span class='line'>bootrec.exe /fixboot  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>
 I&#8217;ve applied both commands, the had be done correctly and after a Restart I was able to Boot Windows again. The only good point is that I don&#8217;t have to take care on startup if the correct OS is selected, anymore :).<br/>
 A side note for the next time I make any changes to an OS, be sure to have the recovery CD near myself!</p>
 ]]></content>
@@ -98,8 +288,8 @@ That makes now quite more sense, doesn&#8217;t it? It seems as that&#8217;s the 
 
 <h3>Translate unknown words</h3>
 
-<p>Now we know quite surely that this is a Spam comment, but as you can see as well, we have some not translated words, like <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong>(these can be sometimes important) so let&#8217;s have them translated as well, don&#8217;t we want to know how to receive our 10%?<br/>
-If you&#8217;re using some good Translator, you should have the option to have unknown words transliterated into the target language. So for our <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong> we would get something like:<strong>klienka</strong> that sounds like client. Let&#8217;s guess that we receive 10% of the Money the client pay for his contract.</p>
+<p>Now we know quite surely that this is a Spam comment, but as you can see as well, we have some not translated words, like <code>�?º�?»�?¸�?µ�?½�?º�?°</code> (these can be sometimes important) so let&#8217;s have them translated as well, don&#8217;t we want to know how to receive our 10%?<br/>
+If you&#8217;re using some good Translator, you should have the option to have unknown words transliterated into the target language. So for our <code>�?º�?»�?¸�?µ�?½�?º�?°</code> we would get something like: <code>klienka</code> that sounds like client. Let&#8217;s guess that we receive 10% of the Money the client pay for his contract.</p>
 
 <h3>Deciding dropping or keeping?</h3>
 

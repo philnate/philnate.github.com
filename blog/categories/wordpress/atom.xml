@@ -4,7 +4,7 @@
   <title><![CDATA[Category: WordPress | Eventually /dev/null]]></title>
   <link href="http://philnate.me/blog/categories/wordpress/atom.xml" rel="self"/>
   <link href="http://philnate.me/"/>
-  <updated>2013-04-01T14:40:22+02:00</updated>
+  <updated>2013-04-05T09:36:35+02:00</updated>
   <id>http://philnate.me/</id>
   <author>
     <name><![CDATA[Philipp Knobel]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WordPress(/PHP) and the Byte Order Mask (BOM)]]></title>
+    <link href="http://philnate.me/blog/2008/09/28/wordpress-slash-php-and-the-byte-order-mask-bom/"/>
+    <updated>2008-09-28T14:51:00+02:00</updated>
+    <id>http://philnate.me/blog/2008/09/28/wordpress-slash-php-and-the-byte-order-mask-bom</id>
+    <content type="html"><![CDATA[<p>A few days ago I started to write since some time a Plugin for WordPress again, for a customer. As I read over on WordPress you shall declare the files as UTF-8, but I would have changed it myself as well. Now after some initial testings I encountered this Problem:<br/>
+<code>
+<strong>Warning:</strong> Cannot modify header information - headers already sent by (output started at /xampp/htdocs/blog/wp-content/plugins/phRelatedLinks.php:1) in /xampp/htdocs/blog/wp-includes/pluggable.php on line 776)<br/>
+</code><br/>
+Ah yeah...some known Problem within the WordPress Universe and the PHP one as well, caused by the Problem that infront of the starting <code>&lt; ?php</code> are some other signs. Now when WordPress wants to send the header Information of the Page the whitespace/sign was already sent, but the header needs to be the first part of the website which is sent...therefore PHP throws this error.<br/>
+Unfortunally this wasn't the case for my Problem. As I had no clue what it could be else I searched for some time, and anything I could find told it's a problem with leading signs before <code>&lt; ?php</code>. Luckily I found <a href="http://robv.de/read/headers-already-sent-durch-wordpress-plugin">this Post with the same Problem</a>, which solved it.<br/>
+While saving my file with SciTE as <em>UTF-8</em>, SciTE added a Byte Order Mask to the file, which isn't needed at all as UTF-8 doesn't encounter differences between big-Endian and little-Endian. Anyway it's now widely used to easily tell apart <em>UTF-8</em> and <em>ISO-8859</em>. So if a file contains as starting Bytes: <code>EF BB BF</code> it's (mostly) a <em>UTF-8</em> formatted file. But as these Bytes aren't displayed within SciTE at all, you can go crazy with it. To write a file without this optional BOM you need to select as Encoding <em>UTF-8 Cookie</em> within SciTE.<br/>
+Now the real cause was found, and it wasn't WordPress who tried to drive me crazy at all. A look within PHP revealed that PHP isn't able to interpret these Bytes as mark for a following <em>UTF-8</em> Encoding. The <a href="http://bugs.php.net/bug.php?id=22108">related Bug Post</a> was closed as won't fix for PHP 5/4, the correct behavior will be implemented with PHP 6+.<br/>
+In the meantime I hope that not too many other people will encounter that Problem and if, they're able to find the solution faster than me!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Be careful with approving Comments]]></title>
@@ -41,8 +58,8 @@ That makes now quite more sense, doesn't it? It seems as that's the pricelist fo
 
 <h3>Translate unknown words</h3>
 
-<p>Now we know quite surely that this is a Spam comment, but as you can see as well, we have some not translated words, like <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong>(these can be sometimes important) so let's have them translated as well, don't we want to know how to receive our 10%?<br/>
-If you're using some good Translator, you should have the option to have unknown words transliterated into the target language. So for our <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong> we would get something like:<strong>klienka</strong> that sounds like client. Let's guess that we receive 10% of the Money the client pay for his contract.</p>
+<p>Now we know quite surely that this is a Spam comment, but as you can see as well, we have some not translated words, like <code>�?º�?»�?¸�?µ�?½�?º�?°</code> (these can be sometimes important) so let's have them translated as well, don't we want to know how to receive our 10%?<br/>
+If you're using some good Translator, you should have the option to have unknown words transliterated into the target language. So for our <code>�?º�?»�?¸�?µ�?½�?º�?°</code> we would get something like: <code>klienka</code> that sounds like client. Let's guess that we receive 10% of the Money the client pay for his contract.</p>
 
 <h3>Deciding dropping or keeping?</h3>
 

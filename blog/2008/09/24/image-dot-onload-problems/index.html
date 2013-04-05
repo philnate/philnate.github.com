@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Image.onload() Problems - Eventually /dev/null</title>
+  <meta name="author" content="Philipp Knobel">
+
+  
+  <meta name="description" content="Since a while I&#8217;m working with Javascript. I have to say, that it&#8217;s for sure not that hard to write cross-browser Source Code, like it&# &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://philnate.me/blog/2008/09/24/image-dot-onload-problems">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Eventually /dev/null" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Eventually /dev/null</a></h1>
+  
+    <h2>Random thoughts from an emerging Programmer</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:philnate.me" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Image.onload() Problems</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-24T14:48:00+02:00" pubdate data-updated="true">Sep 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Since a while I&#8217;m working with Javascript. I have to say, that it&#8217;s for sure not that hard to write cross-browser Source Code, like it&#8217;s still with CSS. But some parts aren&#8217;t easy to get them working. A recent problem is indeed the image.onload. At first it&#8217;s obviously that you should register an onload EventListener, before you assign an Image, like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">image</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;let&#39;s do something in here!&quot;</span><span class="p">);};</span>
+</span><span class='line'><span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;myURL&quot;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+As it&#8217;s quite possible that the other way around, the picture is already loaded before the EventListener is registered.<br/>
+But Hey! That&#8217;s no reason to make this mistake a few times&#8230;Now after you solve that self-made problem you can run into the next one! Opera calls the onload Event, only if the Object is newly created or the Image loaded isn&#8217;t already cached. That&#8217;s the state of <em>Opera 7.5</em>, as I read several times on various sites, this problem was fixed with <em>Opera 8.x</em>. But now it seems that this Problem is back with <em>Opera 9.26+</em>( or earlier).<br/>
+Unfortunately my Script needs to be noticed everytime a new Image is loaded, although it may already be cached. The only way I&#8217;m aware of getting what I want, is to disable the Cache of Opera, through Opera&#8217;s settings or per HTTP Header. Ok another way would be a function which looks the whole time if the image is changing, but both aren&#8217;t that what I&#8217;m searching for. Someone knows if it&#8217;s possible to get some real onload for Images in Opera, without any of the previously mentioned <em>hack</em>?<br/>
+Or can Opera fix this problem? It&#8217;s working correctly in IE, why not in Opera?</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Philipp Knobel</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-24T14:48:00+02:00" pubdate data-updated="true">Sep 24<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/coding/'>coding</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://philnate.me/blog/2008/09/24/image-dot-onload-problems/" data-via="philnate" data-counturl="http://philnate.me/blog/2008/09/24/image-dot-onload-problems/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/03/07/find-missing-argument-to-exec/" title="Previous Post: find: missing argument to `-exec`">&laquo; find: missing argument to `-exec`</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/09/28/wordpress-slash-php-and-the-byte-order-mask-bom/" title="Next Post: WordPress(/PHP) and the Byte Order Mask (BOM)">WordPress(/PHP) and the Byte Order Mask (BOM) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/01/db2-remote-connection/">DB2 Remote Connection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/">Test Driven Development. By Example (Kurt Beck)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/">mongosniff: error while loading shared libraries: libpcap.so.0.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/03/09/crontab-r-a-logic-gap/">crontab -r -- a logic gap?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/">The long and stony way to get Mod_AuthMySQL working</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/philnate">@philnate</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'philnate',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/110229873910589591633?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Philipp Knobel -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

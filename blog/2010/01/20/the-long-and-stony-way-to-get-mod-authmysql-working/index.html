@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The long and stony way to get Mod_AuthMySQL working - Eventually /dev/null</title>
+  <meta name="author" content="Philipp Knobel">
+
+  
+  <meta name="description" content="Somedays it&#8217;s really hard to come along with Linux, it&#8217;s apps and tools. Recently I&#8217;ve tried to use AuthMySQL for authentication &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://philnate.me/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Eventually /dev/null" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Eventually /dev/null</a></h1>
+  
+    <h2>Random thoughts from an emerging Programmer</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:philnate.me" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The Long and Stony Way to Get Mod_AuthMySQL Working</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-20T14:59:00+01:00" pubdate data-updated="true">Jan 20<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Somedays it&#8217;s really hard to come along with Linux, it&#8217;s apps and tools. Recently I&#8217;ve tried to use AuthMySQL for authentication within a certain webfolder. To reach this, many trails and even more errors were needed :(.<br/>
+The first point was to configure the module correctly, which isn&#8217;t that easy, as no post tells which version of AuthMySQL is used nor that there are two of them out, additionally it seems that the module can handle at least partially both directives, but later more.<br/>
+I&#8217;ve searched quickly for some resources about how to configure AuthMySQL, some of the commands worked other didn&#8217;t. After several tries with extensive watching the apache error.log I finally managed to get the authentication running, upto the point of the used Encryption. The first try was to use MD5, but sadly the module did not support that value, although somewhere was talked about it (later I encountered it was for the other module). No Problem there&#8217;s another MD5 Setting, let&#8217;s switch to that one (Crypt_MD5), now AuthMySQL was working, but didn&#8217;t accepted the login details. A google search later I discovered that Crypt_MD5 uses a default Salt of 12 signs (or so) to encrypt the passwords, but my password is encrypted with md5, so no way to get it working. After a few searches why md5 isn&#8217;t working with my version of the module I found that <a href="http://www.php-resource.de/forum/showthread/t-34784.html">forum entry</a> which revealed that there are two modules out, which offer Authentication through MySQL.<br/>
+But as I already supposed Debian doesn&#8217;t offer a package for the other module or I didn&#8217;t find it, anyway I got to the <a href="http://modauthmysql.sourceforge.net">website of the other module</a> and downloaded it&#8217;s source code. A fast lookup on howto compile and install modules for apache showed that I need to run apxs. But for my debian install the application wasn&#8217;t installed, you need to get some apache-dev package to install apxs. A few minutes later I&#8217;ve got a matching package and installed it. Next problem: while compiling apxs throws an error 65536, but luckily I found soon an patch, in this <a href="http://www.zoosau.de/technik/mod_auth_mysql-fur-apache22x-kompilieren">blog entry</a> a patch is supplied so that the module was successful compiled under my linux installation.<br/>
+The needed renaming of the module directives was done quickly and finally I got the authentication through MySQL working.<br/>
+Alltogether it took a few hours to get that simple job working, anyway I&#8217;ve increased my knowledge about Apache and Linux, which isn&#8217;t that bad :).<br/>
+Maybe this post will help the one or other to solve his problems quicker, as it contains quite well condensed errors and their solution.<br/>
+If you want to use AuthMySQL get this <a href="http://modauthmysql.sourceforge.net">version</a> as it supplies in my eyes the best functionality. The easiest way to differ both versions is that one requires underlines within the directives and the other one doesn&#8217;t (the one which is linked).</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Philipp Knobel</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-20T14:59:00+01:00" pubdate data-updated="true">Jan 20<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/linux/'>linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://philnate.me/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/" data-via="philnate" data-counturl="http://philnate.me/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/01/16/internet-explorer-and-javascript-problems/" title="Previous Post: Internet Explorer and JavaScript problems">&laquo; Internet Explorer and JavaScript problems</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/03/09/crontab-r-a-logic-gap/" title="Next Post: crontab -r -- a logic gap?">crontab -r -- a logic gap? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/01/db2-remote-connection/">DB2 Remote Connection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/">Test Driven Development. By Example (Kurt Beck)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/">mongosniff: error while loading shared libraries: libpcap.so.0.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/03/09/crontab-r-a-logic-gap/">crontab -r -- a logic gap?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/">The long and stony way to get Mod_AuthMySQL working</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/philnate">@philnate</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'philnate',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/110229873910589591633?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Philipp Knobel -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

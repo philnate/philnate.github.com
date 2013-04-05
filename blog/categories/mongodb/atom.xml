@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mongodb | Eventually /dev/null]]></title>
+  <link href="http://philnate.me/blog/categories/mongodb/atom.xml" rel="self"/>
+  <link href="http://philnate.me/"/>
+  <updated>2013-04-05T09:36:35+02:00</updated>
+  <id>http://philnate.me/</id>
+  <author>
+    <name><![CDATA[Philipp Knobel]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[mongosniff: error while loading shared libraries: libpcap.so.0.9]]></title>
+    <link href="http://philnate.me/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/"/>
+    <updated>2012-03-28T17:26:00+02:00</updated>
+    <id>http://philnate.me/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9</id>
+    <content type="html"><![CDATA[<p>Lately I've worked with <a href="http://mongodb.org">mongoDB</a> which is a great NoSQL database. A tool which can come in handy is <a href="http://mongodb.org/display/DOCS/mongosniff">mongosniff</a>, which comes with mongodb binaries. Mongosniff is something like tcpdump for TCP/IP.<br/>
+On my Fedora 16 x86_64 System I'm running mongodb binaries available from mongodb, this allows me to easily run the version I want. But mongosniff didn't worked right out the box for it. When starting mongosniff I got following error: <strong>mongosniff: error while loading shared libraries: libpcap.so.0.9: cannot open shared object file: No such file or directory</strong>.  So this mostly means that libpcap isn't installed, but this wasn't the case as you can see soon.<br/>
+My first try was to install libpcap for my system but this didn't solve the problem. A lookup with <code>ldd</code> showed that indeed libpcap.so.0.9 was missing for it:<br/>
+``` bash
+$: ldd /usr/bin/mongosniff</p>
+
+<pre><code>   linux-vdso.so.1 =&gt;  (0x00007fffa30d2000)
+   libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x0000003ef0400000)
+   libstdc++.so.6 =&gt; /usr/lib64/libstdc++.so.6 (0x0000003655a00000)
+   libpcap.so.0.9 =&gt; not found
+   libm.so.6 =&gt; /lib64/libm.so.6 (0x0000003ef1000000)
+   libgcc_s.so.1 =&amp;gt; /lib64/libgcc_s.so.1 (0x0000003654600000)
+   libc.so.6 =&gt; /lib64/libc.so.6 (0x0000003ef0000000)
+   /lib64/ld-linux-x86-64.so.2 (0x0000003eefc00000)
+</code></pre>
+
+<p><code>
+A check if any libpcap module was available showed that a too new version was installed and that a symlink as libpcap.so.0.9 was missing:  
+</code> bash
+$: ls /usr/lib64/libpcap*
+/usr/lib64/libpcapnav.so        /usr/lib64/libpcapnav.so.0
+/usr/lib64/libpcap.so.1         /usr/lib64/libpcapnav.so.0.0.0
+/usr/lib64/libpcap.so.1.1.1     /usr/lib64/libpcap.so
+```
+So creating a symlink for libpcap.so.0.9 solved the startup problem: <code>ln -s /usr/lib64/libpcap.so.1.1.1 /usr/lib64/libpcap.so.0.9</code>. If you're running a 32bit mongodb version you may check your <code>/usr/lib</code> to see if the required libpcap is missing. Don't know if this problem still exists if you're running mongodb from the offical repositoy.</p>
+]]></content>
+  </entry>
+  
+</feed>

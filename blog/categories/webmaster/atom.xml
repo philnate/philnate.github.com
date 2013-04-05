@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Webmaster | Eventually /dev/null]]></title>
   <link href="http://philnate.me/blog/categories/webmaster/atom.xml" rel="self"/>
   <link href="http://philnate.me/"/>
-  <updated>2013-04-01T14:40:22+02:00</updated>
+  <updated>2013-04-05T09:36:35+02:00</updated>
   <id>http://philnate.me/</id>
   <author>
     <name><![CDATA[Philipp Knobel]]></name>
@@ -41,8 +41,8 @@ That makes now quite more sense, doesn't it? It seems as that's the pricelist fo
 
 <h3>Translate unknown words</h3>
 
-<p>Now we know quite surely that this is a Spam comment, but as you can see as well, we have some not translated words, like <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong>(these can be sometimes important) so let's have them translated as well, don't we want to know how to receive our 10%?<br/>
-If you're using some good Translator, you should have the option to have unknown words transliterated into the target language. So for our <strong>�?º�?»�?¸�?µ�?½�?º�?°</strong> we would get something like:<strong>klienka</strong> that sounds like client. Let's guess that we receive 10% of the Money the client pay for his contract.</p>
+<p>Now we know quite surely that this is a Spam comment, but as you can see as well, we have some not translated words, like <code>�?º�?»�?¸�?µ�?½�?º�?°</code> (these can be sometimes important) so let's have them translated as well, don't we want to know how to receive our 10%?<br/>
+If you're using some good Translator, you should have the option to have unknown words transliterated into the target language. So for our <code>�?º�?»�?¸�?µ�?½�?º�?°</code> we would get something like: <code>klienka</code> that sounds like client. Let's guess that we receive 10% of the Money the client pay for his contract.</p>
 
 <h3>Deciding dropping or keeping?</h3>
 

@@ -96,11 +96,15 @@ I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;
 I&#8217;ve dropped yesterday my Linux Partition from my laptop. It wouldn&#8217;t be that problematic if it hadn&#8217;t the Boot session on it. Anyway I didn&#8217;t noticed that big mistake until I restarted my Laptop and encounter some Error while Loading GRUB.<br/>
 After the first seconds of thinking, what happened, I started to knock my head against the table(not really:)). As soon as I stopped to hate myself I made a search for a solution and quickly found an Answer: <a href="http://www.pcwelt.de/forum/windows-xp-server-2003/158389-grub-bootloader-gel-scht-xp-startet-2.html">Start your PC with your Recovery CD</a> and run fixmbr and fixboot. Ok, no big deal&#8230;as long as you have your Recovery CD with you, but I didn&#8217;t&#8230;(second time some knocking, was hearable).<br/>
 So my next try was to get some Recovery Application on the base of some small DOS Boot, I found quickly something, anyway it didn&#8217;t worked for XP(at least for my PC it didn&#8217;t).<br/>
-Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <strong>fixmbr</strong>&amp;<strong>fixboot</strong> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:<br/>
-<code><br/>
-bootrec.exe /fixmbr<br/>
-bootrec.exe /fixboot<br/>
-</code><br/>
+Next I&#8217;ve inserted the Vista Recovery from some friend( I would like to mention that without any Install you can run already some Safe-Mode like Vista&#8230;with working Notepad, aso.). I was even able to start a Cmd.exe, but the next shock wasn&#8217;t far as I noticed that <code>fixmbr</code> and <code>fixboot</code> didn&#8217;t worked within Vista. A new search was on the way, on how to get fixmbr&amp;fixboot working on Vista Recovery CDs, again I had luck and found soon, <a href="http://www.linuxforums.org/forum/installation/94066-need-fix-mbr.html">a solution</a>&#8230;you have to call them as Parameter through some other application:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bootrec.exe /fixmbr  
+</span><span class='line'>bootrec.exe /fixboot  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>
 I&#8217;ve applied both commands, the had be done correctly and after a Restart I was able to Boot Windows again. The only good point is that I don&#8217;t have to take care on startup if the correct OS is selected, anymore :).<br/>
 A side note for the next time I make any changes to an OS, be sure to have the recovery CD near myself!</p>
 </div>
@@ -151,7 +155,7 @@ A side note for the next time I make any changes to an OS, be sure to have the r
         <a class="basic-alignment left" href="/blog/2007/10/28/be-careful-with-approving-comments/" title="Previous Post: Be careful with approving Comments">&laquo; Be careful with approving Comments</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/" title="Next Post: Test Driven Development. By Example (Kurt Beck)">Test Driven Development. By Example (Kurt Beck) &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2008/03/07/find-missing-argument-to-exec/" title="Next Post: find: missing argument to `-exec`">find: missing argument to `-exec` &raquo;</a>
       
     </p>
   </footer>
@@ -166,23 +170,23 @@ A side note for the next time I make any changes to an OS, be sure to have the r
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/04/01/db2-remote-connection/">DB2 Remote Connection</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/">Test Driven Development. By Example (Kurt Beck)</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2007/12/05/restoring-windows/">Restoring Windows</a>
+        <a href="/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/">mongosniff: error while loading shared libraries: libpcap.so.0.9</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2007/10/28/be-careful-with-approving-comments/">Be careful with approving Comments</a>
+        <a href="/blog/2010/03/09/crontab-r-a-logic-gap/">crontab -r -- a logic gap?</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2007/10/21/how-to-prevent-most-of-the-spam/">How to prevent most of the SPAM</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2007/10/04/why-stealing-is-bad/">Why Stealing is bad</a>
+        <a href="/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/">The long and stony way to get Mod_AuthMySQL working</a>
       </li>
     
   </ul>

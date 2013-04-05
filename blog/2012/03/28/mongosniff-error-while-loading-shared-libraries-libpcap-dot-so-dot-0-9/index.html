@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>mongosniff: error while loading shared libraries: libpcap.so.0.9 - Eventually /dev/null</title>
+  <meta name="author" content="Philipp Knobel">
+
+  
+  <meta name="description" content="Lately I&#8217;ve worked with mongoDB which is a great NoSQL database. A tool which can come in handy is mongosniff, which comes with mongodb &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://philnate.me/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Eventually /dev/null" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Eventually /dev/null</a></h1>
+  
+    <h2>Random thoughts from an emerging Programmer</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:philnate.me" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Mongosniff: Error While Loading Shared Libraries: libpcap.so.0.9</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-28T17:26:00+02:00" pubdate data-updated="true">Mar 28<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Lately I&#8217;ve worked with <a href="http://mongodb.org">mongoDB</a> which is a great NoSQL database. A tool which can come in handy is <a href="http://mongodb.org/display/DOCS/mongosniff">mongosniff</a>, which comes with mongodb binaries. Mongosniff is something like tcpdump for TCP/IP.<br/>
+On my Fedora 16 x86_64 System I&#8217;m running mongodb binaries available from mongodb, this allows me to easily run the version I want. But mongosniff didn&#8217;t worked right out the box for it. When starting mongosniff I got following error: <strong>mongosniff: error while loading shared libraries: libpcap.so.0.9: cannot open shared object file: No such file or directory</strong>.  So this mostly means that libpcap isn&#8217;t installed, but this wasn&#8217;t the case as you can see soon.<br/>
+My first try was to install libpcap for my system but this didn&#8217;t solve the problem. A lookup with <code>ldd</code> showed that indeed libpcap.so.0.9 was missing for it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$:</span> ldd /usr/bin/mongosniff
+</span><span class='line'>       linux-vdso.so.1 <span class="o">=</span>&gt;  <span class="o">(</span>0x00007fffa30d2000<span class="o">)</span>
+</span><span class='line'>       libpthread.so.0 <span class="o">=</span>&gt; /lib64/libpthread.so.0 <span class="o">(</span>0x0000003ef0400000<span class="o">)</span>
+</span><span class='line'>       libstdc++.so.6 <span class="o">=</span>&gt; /usr/lib64/libstdc++.so.6 <span class="o">(</span>0x0000003655a00000<span class="o">)</span>
+</span><span class='line'>       libpcap.so.0.9 <span class="o">=</span>&gt; not found
+</span><span class='line'>       libm.so.6 <span class="o">=</span>&gt; /lib64/libm.so.6 <span class="o">(</span>0x0000003ef1000000<span class="o">)</span>
+</span><span class='line'>       libgcc_s.so.1 <span class="o">=</span>&amp;gt; /lib64/libgcc_s.so.1 <span class="o">(</span>0x0000003654600000<span class="o">)</span>
+</span><span class='line'>       libc.so.6 <span class="o">=</span>&gt; /lib64/libc.so.6 <span class="o">(</span>0x0000003ef0000000<span class="o">)</span>
+</span><span class='line'>       /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x0000003eefc00000<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A check if any libpcap module was available showed that a too new version was installed and that a symlink as libpcap.so.0.9 was missing:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$:</span> ls /usr/lib64/libpcap*
+</span><span class='line'>/usr/lib64/libpcapnav.so        /usr/lib64/libpcapnav.so.0
+</span><span class='line'>/usr/lib64/libpcap.so.1         /usr/lib64/libpcapnav.so.0.0.0
+</span><span class='line'>/usr/lib64/libpcap.so.1.1.1     /usr/lib64/libpcap.so
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So creating a symlink for libpcap.so.0.9 solved the startup problem: <code>ln -s /usr/lib64/libpcap.so.1.1.1 /usr/lib64/libpcap.so.0.9</code>. If you&#8217;re running a 32bit mongodb version you may check your <code>/usr/lib</code> to see if the required libpcap is missing. Don&#8217;t know if this problem still exists if you&#8217;re running mongodb from the offical repositoy.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Philipp Knobel</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-28T17:26:00+02:00" pubdate data-updated="true">Mar 28<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mongodb/'>mongodb</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://philnate.me/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/" data-via="philnate" data-counturl="http://philnate.me/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/03/09/crontab-r-a-logic-gap/" title="Previous Post: crontab -r -- a logic gap?">&laquo; crontab -r -- a logic gap?</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/" title="Next Post: Test Driven Development. By Example (Kurt Beck)">Test Driven Development. By Example (Kurt Beck) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/01/db2-remote-connection/">DB2 Remote Connection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/29/test-driven-development-by-example-kurt-beck/">Test Driven Development. By Example (Kurt Beck)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/28/mongosniff-error-while-loading-shared-libraries-libpcap-dot-so-dot-0-9/">mongosniff: error while loading shared libraries: libpcap.so.0.9</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/03/09/crontab-r-a-logic-gap/">crontab -r -- a logic gap?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/">The long and stony way to get Mod_AuthMySQL working</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/philnate">@philnate</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'philnate',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/110229873910589591633?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Philipp Knobel -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

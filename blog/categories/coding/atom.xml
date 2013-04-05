@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: coding | Eventually /dev/null]]></title>
+  <link href="http://philnate.me/blog/categories/coding/atom.xml" rel="self"/>
+  <link href="http://philnate.me/"/>
+  <updated>2013-04-05T09:36:35+02:00</updated>
+  <id>http://philnate.me/</id>
+  <author>
+    <name><![CDATA[Philipp Knobel]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[DB2 Remote Connection]]></title>
+    <link href="http://philnate.me/blog/2013/04/01/db2-remote-connection/"/>
+    <updated>2013-04-01T15:04:00+02:00</updated>
+    <id>http://philnate.me/blog/2013/04/01/db2-remote-connection</id>
+    <content type="html"><![CDATA[<p>As I found out within the last days it isn't that easy to find informations about how to connect Java through JDBC with a DB2 Database remotely. So if you should come into these troubles as well, take care of this:<br/>
+As DB2 driver you need to use <em>COM.ibm.db2.jdbc.<strong>net</strong>.DB2Driver</em> which is located in the same file (<code>db2java.zip</code>) as the default driver (<em>COM.ibm.db2.jdbc.<strong>app</strong>.DB2Driver</em>) which is "promoted" on most sites. The problem with these two drivers is that they're not able to work with the other kind of connection. So If you inserted the <strong>net</strong> driver you can't create local connections and vice versa. If you want to be flexible you need to use as driver <code>com.ibm.db2.jcc.DB2Driver</code> which is capable to handle both types of connections. The driver can be found within the <code>db2jcc.jar</code> file, which should be located in the same place as <code>db2java.zip</code>. At least for me it was further needed to provide a license in order to establish a remote connection, to achieve this add a file called <code>db2jcc_license_cu.jar</code> or maybe some file which is similiar named to your Classpath.<br/>
+Connection string: After some search I found the DB2 page where the remote connection string was described. The string has follow this scheme for remote connections: <code>jdbc:db2://SERVERNAME:PORT/DATABASE</code>.<br/>
+Not sure if you can leave the DATABASE and run later a <em>Connect to DATABASE</em> Query. At least my quick tries resulted each time with an Exception caused by wrong connection strings.<br/>
+If you don't know on which port your DB2 Instance is running take a look at your <code>/etc/services</code> and look for the corresponding line.<br/>
+Now you should be ready to successfully open a remote Connection.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The long and stony way to get Mod_AuthMySQL working]]></title>
+    <link href="http://philnate.me/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working/"/>
+    <updated>2010-01-20T14:59:00+01:00</updated>
+    <id>http://philnate.me/blog/2010/01/20/the-long-and-stony-way-to-get-mod-authmysql-working</id>
+    <content type="html"><![CDATA[<p>Somedays it's really hard to come along with Linux, it's apps and tools. Recently I've tried to use AuthMySQL for authentication within a certain webfolder. To reach this, many trails and even more errors were needed :(.<br/>
+The first point was to configure the module correctly, which isn't that easy, as no post tells which version of AuthMySQL is used nor that there are two of them out, additionally it seems that the module can handle at least partially both directives, but later more.<br/>
+I've searched quickly for some resources about how to configure AuthMySQL, some of the commands worked other didn't. After several tries with extensive watching the apache error.log I finally managed to get the authentication running, upto the point of the used Encryption. The first try was to use MD5, but sadly the module did not support that value, although somewhere was talked about it (later I encountered it was for the other module). No Problem there's another MD5 Setting, let's switch to that one (Crypt_MD5), now AuthMySQL was working, but didn't accepted the login details. A google search later I discovered that Crypt_MD5 uses a default Salt of 12 signs (or so) to encrypt the passwords, but my password is encrypted with md5, so no way to get it working. After a few searches why md5 isn't working with my version of the module I found that <a href="http://www.php-resource.de/forum/showthread/t-34784.html">forum entry</a> which revealed that there are two modules out, which offer Authentication through MySQL.<br/>
+But as I already supposed Debian doesn't offer a package for the other module or I didn't find it, anyway I got to the <a href="http://modauthmysql.sourceforge.net">website of the other module</a> and downloaded it's source code. A fast lookup on howto compile and install modules for apache showed that I need to run apxs. But for my debian install the application wasn't installed, you need to get some apache-dev package to install apxs. A few minutes later I've got a matching package and installed it. Next problem: while compiling apxs throws an error 65536, but luckily I found soon an patch, in this <a href="http://www.zoosau.de/technik/mod_auth_mysql-fur-apache22x-kompilieren">blog entry</a> a patch is supplied so that the module was successful compiled under my linux installation.<br/>
+The needed renaming of the module directives was done quickly and finally I got the authentication through MySQL working.<br/>
+Alltogether it took a few hours to get that simple job working, anyway I've increased my knowledge about Apache and Linux, which isn't that bad :).<br/>
+Maybe this post will help the one or other to solve his problems quicker, as it contains quite well condensed errors and their solution.<br/>
+If you want to use AuthMySQL get this <a href="http://modauthmysql.sourceforge.net">version</a> as it supplies in my eyes the best functionality. The easiest way to differ both versions is that one requires underlines within the directives and the other one doesn't (the one which is linked).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Internet Explorer and JavaScript problems]]></title>
+    <link href="http://philnate.me/blog/2010/01/16/internet-explorer-and-javascript-problems/"/>
+    <updated>2010-01-16T14:57:00+01:00</updated>
+    <id>http://philnate.me/blog/2010/01/16/internet-explorer-and-javascript-problems</id>
+    <content type="html"><![CDATA[<p>I've seen in within my two years of JavaScript progamming some weird things, about browser behaviour. But the one I've discovered yesterday tops them all. Some of my JavaScript class use the <code>document.createElement</code> function within it's init procedure. The Script is working fine used within one Website, even with IE. But when the Script is added to another Website, IE complaints that document.createElement isn't supported by this Object. An alert directly before the call is executed shows:<br/>
+<code>javascript
+function createElement() {  
+[native Code]  
+}
+</code><br/>
+But it still doesn't work in IE.<br/>
+Someone ever encountered that problem? I'm currently missing a solutin except the try to manually create the HTML-Node.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WordPress(/PHP) and the Byte Order Mask (BOM)]]></title>
+    <link href="http://philnate.me/blog/2008/09/28/wordpress-slash-php-and-the-byte-order-mask-bom/"/>
+    <updated>2008-09-28T14:51:00+02:00</updated>
+    <id>http://philnate.me/blog/2008/09/28/wordpress-slash-php-and-the-byte-order-mask-bom</id>
+    <content type="html"><![CDATA[<p>A few days ago I started to write since some time a Plugin for WordPress again, for a customer. As I read over on WordPress you shall declare the files as UTF-8, but I would have changed it myself as well. Now after some initial testings I encountered this Problem:<br/>
+<code>
+<strong>Warning:</strong> Cannot modify header information - headers already sent by (output started at /xampp/htdocs/blog/wp-content/plugins/phRelatedLinks.php:1) in /xampp/htdocs/blog/wp-includes/pluggable.php on line 776)<br/>
+</code><br/>
+Ah yeah...some known Problem within the WordPress Universe and the PHP one as well, caused by the Problem that infront of the starting <code>&lt; ?php</code> are some other signs. Now when WordPress wants to send the header Information of the Page the whitespace/sign was already sent, but the header needs to be the first part of the website which is sent...therefore PHP throws this error.<br/>
+Unfortunally this wasn't the case for my Problem. As I had no clue what it could be else I searched for some time, and anything I could find told it's a problem with leading signs before <code>&lt; ?php</code>. Luckily I found <a href="http://robv.de/read/headers-already-sent-durch-wordpress-plugin">this Post with the same Problem</a>, which solved it.<br/>
+While saving my file with SciTE as <em>UTF-8</em>, SciTE added a Byte Order Mask to the file, which isn't needed at all as UTF-8 doesn't encounter differences between big-Endian and little-Endian. Anyway it's now widely used to easily tell apart <em>UTF-8</em> and <em>ISO-8859</em>. So if a file contains as starting Bytes: <code>EF BB BF</code> it's (mostly) a <em>UTF-8</em> formatted file. But as these Bytes aren't displayed within SciTE at all, you can go crazy with it. To write a file without this optional BOM you need to select as Encoding <em>UTF-8 Cookie</em> within SciTE.<br/>
+Now the real cause was found, and it wasn't WordPress who tried to drive me crazy at all. A look within PHP revealed that PHP isn't able to interpret these Bytes as mark for a following <em>UTF-8</em> Encoding. The <a href="http://bugs.php.net/bug.php?id=22108">related Bug Post</a> was closed as won't fix for PHP 5/4, the correct behavior will be implemented with PHP 6+.<br/>
+In the meantime I hope that not too many other people will encounter that Problem and if, they're able to find the solution faster than me!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Image.onload() Problems]]></title>
+    <link href="http://philnate.me/blog/2008/09/24/image-dot-onload-problems/"/>
+    <updated>2008-09-24T14:48:00+02:00</updated>
+    <id>http://philnate.me/blog/2008/09/24/image-dot-onload-problems</id>
+    <content type="html"><![CDATA[<p>Since a while I'm working with Javascript. I have to say, that it's for sure not that hard to write cross-browser Source Code, like it's still with CSS. But some parts aren't easy to get them working. A recent problem is indeed the image.onload. At first it's obviously that you should register an onload EventListener, before you assign an Image, like this:<br/>
+<code>javascript  
+image.onload = function() { alert("let's do something in here!");};  
+image.src = "myURL";  
+</code><br/>
+As it's quite possible that the other way around, the picture is already loaded before the EventListener is registered.<br/>
+But Hey! That's no reason to make this mistake a few times...Now after you solve that self-made problem you can run into the next one! Opera calls the onload Event, only if the Object is newly created or the Image loaded isn't already cached. That's the state of <em>Opera 7.5</em>, as I read several times on various sites, this problem was fixed with <em>Opera 8.x</em>. But now it seems that this Problem is back with <em>Opera 9.26+</em>( or earlier).<br/>
+Unfortunately my Script needs to be noticed everytime a new Image is loaded, although it may already be cached. The only way I'm aware of getting what I want, is to disable the Cache of Opera, through Opera's settings or per HTTP Header. Ok another way would be a function which looks the whole time if the image is changing, but both aren't that what I'm searching for. Someone knows if it's possible to get some real onload for Images in Opera, without any of the previously mentioned <em>hack</em>?<br/>
+Or can Opera fix this problem? It's working correctly in IE, why not in Opera?</p>
+]]></content>
+  </entry>
+  
+</feed>
